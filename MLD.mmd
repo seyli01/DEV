@@ -1,0 +1,99 @@
+erDiagram
+    DEPARTEMENT ||--o{ PROFESSEUR : "FK"
+    DEPARTEMENT ||--o{ COURS : "FK"
+    PROFESSEUR ||--o{ COURS : "FK"
+    ETUDIANT ||--o{ INSCRIPTION : "FK"
+    COURS ||--o{ INSCRIPTION : "FK"
+    ETUDIANT ||--o{ NOTE : "FK"
+    COURS ||--o{ NOTE : "FK"
+    PERSONNEL_ADMIN ||--o{ PLANNING : "FK"
+    COURS ||--o{ PLANNING : "FK"
+    SALLE ||--o{ PLANNING : "FK"
+
+    ETUDIANT {
+        int id_etudiant PK
+        string numero_etudiant
+        string nom
+        string prenom
+        date date_naissance
+        string email
+        string telephone
+        string adresse
+        date date_inscription
+    }
+
+    PROFESSEUR {
+        int id_professeur PK
+        int id_departement FK
+        string numero_professeur
+        string nom
+        string prenom
+        string email
+        string specialite
+        date date_embauche
+    }
+
+    COURS {
+        int id_cours PK
+        int id_professeur FK
+        int id_departement FK
+        string code_cours
+        string nom_cours
+        string description
+        int credits
+        int heures
+    }
+
+    DEPARTEMENT {
+        int id_departement PK
+        string code_departement
+        string nom_departement
+        string batiment
+    }
+
+    PERSONNEL_ADMIN {
+        int id_admin PK
+        string numero_admin
+        string nom
+        string prenom
+        string email
+        string poste
+        date date_embauche
+    }
+
+    SALLE {
+        int id_salle PK
+        string numero_salle
+        string batiment
+        int capacite
+        string type_salle
+    }
+
+    INSCRIPTION {
+        int id_inscription PK
+        int id_etudiant FK
+        int id_cours FK
+        date date_inscription
+        string statut
+        string semestre
+    }
+
+    NOTE {
+        int id_note PK
+        int id_etudiant FK
+        int id_cours FK
+        float note
+        date date_examen
+        string type_evaluation
+    }
+
+    PLANNING {
+        int id_planning PK
+        int id_admin FK
+        int id_cours FK
+        int id_salle FK
+        date date_cours
+        time heure_debut
+        time heure_fin
+        string jour_semaine
+    }
