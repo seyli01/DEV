@@ -1,0 +1,79 @@
+erDiagram
+    ETUDIANT ||--o{ INSCRIPTION : "1,n s'inscrit 0,n"
+    COURS ||--o{ INSCRIPTION : "1,n concerne 0,n"
+    PROFESSEUR ||--o{ COURS : "1,1 enseigne 1,n"
+    ETUDIANT ||--o{ NOTE : "1,n obtient 0,n"
+    COURS ||--o{ NOTE : "1,n evalue 0,n"
+    DEPARTEMENT ||--o{ PROFESSEUR : "1,1 emploie 0,n"
+    DEPARTEMENT ||--o{ COURS : "1,1 propose 0,n"
+    PERSONNEL_ADMIN ||--o{ PLANNING : "1,1 gere 0,n"
+    COURS ||--o{ PLANNING : "1,1 planifie 0,n"
+    SALLE ||--o{ PLANNING : "1,1 occupe 0,n"
+
+    ETUDIANT {
+        string numero_etudiant
+        string nom
+        string prenom
+        date date_naissance
+        string email
+        string telephone
+        string adresse
+    }
+
+    PROFESSEUR {
+        string numero_professeur
+        string nom
+        string prenom
+        string email
+        string specialite
+        date date_embauche
+    }
+
+    COURS {
+        string code_cours
+        string nom_cours
+        string description
+        int credits
+        int heures
+    }
+
+    DEPARTEMENT {
+        string code_departement
+        string nom_departement
+        string batiment
+    }
+
+    PERSONNEL_ADMIN {
+        string numero_admin
+        string nom
+        string prenom
+        string email
+        string poste
+        date date_embauche
+    }
+
+    SALLE {
+        string numero_salle
+        string batiment
+        int capacite
+        string type_salle
+    }
+
+    INSCRIPTION {
+        date date_inscription
+        string statut
+        string semestre
+    }
+
+    NOTE {
+        float note
+        date date_examen
+        string type_evaluation
+    }
+
+    PLANNING {
+        date date_cours
+        time heure_debut
+        time heure_fin
+        string jour_semaine
+    }
