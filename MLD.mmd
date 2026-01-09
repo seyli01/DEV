@@ -6,78 +6,91 @@ erDiagram
     COURS ||--o{ INSCRIPTION : ""
     ETUDIANT ||--o{ NOTE : ""
     COURS ||--o{ NOTE : ""
-    PERSONNEL_ADMIN ||--o{ PLANNING : ""
     COURS ||--o{ PLANNING : ""
     SALLE ||--o{ PLANNING : ""
-
+    ETUDIANT ||--o{ INSCRIPTION_ANNUELLE : ""
+    
     ETUDIANT {
         int id_etudiant PK
-        string numero_etudiant
+        string numero_etudiant UK
         string nom
         string prenom
         date date_naissance
-        string email
+        string email UK
         string telephone
         string adresse
-        date date_inscription
     }
-
+    
     PROFESSEUR {
         int id_professeur PK
         int id_departement FK
-        string numero_professeur
+        string numero_professeur UK
         string nom
         string prenom
-        string email
+        string email UK
         string specialite
         date date_embauche
+        string grade
     }
-
+    
     COURS {
         int id_cours PK
         int id_professeur FK
         int id_departement FK
-        string code_cours
+        string code_cours UK
         string nom_cours
         string description
         int credits
         int heures
+        string semestre
+        string niveau
     }
-
+    
     DEPARTEMENT {
         int id_departement PK
-        string code_departement
+        string code_departement UK
         string nom_departement
         string batiment
+        string telephone
     }
-
+    
     PERSONNEL_ADMIN {
         int id_admin PK
-        string numero_admin
+        string numero_admin UK
         string nom
         string prenom
-        string email
+        string email UK
         string poste
         date date_embauche
     }
-
+    
     SALLE {
         int id_salle PK
-        string numero_salle
+        string numero_salle UK
         string batiment
         int capacite
         string type_salle
+        string equipement
     }
-
+    
     INSCRIPTION {
         int id_inscription PK
         int id_etudiant FK
         int id_cours FK
         date date_inscription
         string statut
-        string semestre
+        string annee_academique
     }
-
+    
+    INSCRIPTION_ANNUELLE {
+        int id_inscription_annuelle PK
+        int id_etudiant FK
+        string annee_academique
+        string niveau
+        string statut
+        date date_inscription
+    }
+    
     NOTE {
         int id_note PK
         int id_etudiant FK
@@ -85,15 +98,17 @@ erDiagram
         float note
         date date_examen
         string type_evaluation
+        float coefficient
+        string session
     }
-
+    
     PLANNING {
         int id_planning PK
-        int id_admin FK
         int id_cours FK
         int id_salle FK
         date date_cours
         time heure_debut
         time heure_fin
         string jour_semaine
+        string type_seance
     }
