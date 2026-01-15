@@ -9,82 +9,83 @@ erDiagram
     PERSONNEL_ADMIN ||--o{ PLANNING : ""
     COURS ||--o{ PLANNING : ""
     SALLE ||--o{ PLANNING : ""
+    
     ETUDIANT {
-        int id_etudiant PK
-        string numero_etudiant
-        string nom
-        string prenom
-        date date_naissance
-        string email
-        string telephone
-        string adresse
-        date date_inscription
+        _ id_etudiant PK
+        _ numero_etudiant
+        _ nom
+        _ prenom
+        _ date_naissance
+        _ email
+        _ telephone
+        _ adresse
+        _ date_inscription
     }
     PROFESSEUR {
-        int id_professeur PK
-        int id_departement FK
-        string numero_professeur
-        string nom
-        string prenom
-        string email
-        string specialite
-        date date_embauche
+        _ id_professeur PK
+        _ id_departement FK
+        _ numero_professeur
+        _ nom
+        _ prenom
+        _ email
+        _ specialite
+        _ date_embauche
     }
     COURS {
-        int id_cours PK
-        int id_professeur FK
-        int id_departement FK
-        string code_cours
-        string nom_cours
-        string description
-        int credits
-        int heures
+        _ id_cours PK
+        _ id_professeur FK
+        _ id_departement FK
+        _ code_cours
+        _ nom_cours
+        _ description
+        _ credits
+        _ heures
     }
     DEPARTEMENT {
-        int id_departement PK
-        string code_departement
-        string nom_departement
-        string batiment
+        _ id_departement PK
+        _ code_departement
+        _ nom_departement
+        _ batiment
     }
     PERSONNEL_ADMIN {
-        int id_admin PK
-        string numero_admin
-        string nom
-        string prenom
-        string email
-        string poste
-        date date_embauche
+        _ id_admin PK
+        _ numero_admin
+        _ nom
+        _ prenom
+        _ email
+        _ poste
+        _ date_embauche
     }
     SALLE {
-        int id_salle PK
-        string numero_salle
-        string batiment
-        int capacite
-        string type_salle
+        _ id_salle PK
+        _ numero_salle
+        _ batiment
+        _ capacite
+        _ type_salle
     }
     INSCRIPTION {
-        int id_inscription PK
-        int id_etudiant FK
-        int id_cours FK
-        date date_inscription
-        string statut
-        string semestre
+        _ id_inscription PK
+        _ id_etudiant FK
+        _ id_cours FK
+        _ date_inscription
+        _ statut
+        _ semestre
     }
     NOTE {
-        int id_note PK
-        int id_etudiant FK
-        int id_cours FK
-        float note
-        date date_examen
-        string type_evaluation
+        _ id_note PK
+        _ id_etudiant FK
+        _ id_cours FK
+        _ note
+        _ date_examen
+        _ type_evaluation
     }
     PLANNING {
-        int id_planning PK
-        int id_admin FK
-        int id_cours FK
-        int id_salle FK
-        date date_cours
-        time heure_debut
-        time heure_fin
-        string jour_semaine
+        _ id_planning PK
+        _ id_admin FK
+        _ id_cours FK
+        _ id_salle FK
+        _ date_cours
+        _ heure_debut
+        _ heure_fin
+        _ jour_semaine
     }
