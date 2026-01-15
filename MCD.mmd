@@ -9,71 +9,63 @@ erDiagram
     PERSONNEL_ADMIN ||--o{ PLANNING : "1,1 gere 0,n"
     COURS ||--o{ PLANNING : "1,1 planifie 0,n"
     SALLE ||--o{ PLANNING : "1,1 occupe 0,n"
-
+    
     ETUDIANT {
-        string numero_etudiant
-        string nom
-        string prenom
-        date date_naissance
-        string email
-        string telephone
-        string adresse
+        _ numero_etudiant
+        _ nom
+        _ prenom
+        _ date_naissance
+        _ email
+        _ telephone
+        _ adresse
     }
-
     PROFESSEUR {
-        string numero_professeur
-        string nom
-        string prenom
-        string email
-        string specialite
-        date date_embauche
+        _ numero_professeur
+        _ nom
+        _ prenom
+        _ email
+        _ specialite
+        _ date_embauche
     }
-
     COURS {
-        string code_cours
-        string nom_cours
-        string description
-        int credits
-        int heures
+        _ code_cours
+        _ nom_cours
+        _ description
+        _ credits
+        _ heures
     }
-
     DEPARTEMENT {
-        string code_departement
-        string nom_departement
-        string batiment
+        _ code_departement
+        _ nom_departement
+        _ batiment
     }
-
     PERSONNEL_ADMIN {
-        string numero_admin
-        string nom
-        string prenom
-        string email
-        string poste
-        date date_embauche
+        _ numero_admin
+        _ nom
+        _ prenom
+        _ email
+        _ poste
+        _ date_embauche
     }
-
     SALLE {
-        string numero_salle
-        string batiment
-        int capacite
-        string type_salle
+        _ numero_salle
+        _ batiment
+        _ capacite
+        _ type_salle
     }
-
     INSCRIPTION {
-        date date_inscription
-        string statut
-        string semestre
+        _ date_inscription
+        _ statut
+        _ semestre
     }
-
     NOTE {
-        float note
-        date date_examen
-        string type_evaluation
+        _ note
+        _ date_examen
+        _ type_evaluation
     }
-
     PLANNING {
-        date date_cours
-        time heure_debut
-        time heure_fin
-        string jour_semaine
+        _ date_cours
+        _ heure_debut
+        _ heure_fin
+        _ jour_semaine
     }
